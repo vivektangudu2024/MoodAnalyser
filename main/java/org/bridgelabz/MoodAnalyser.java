@@ -11,6 +11,10 @@ public class MoodAnalyser {
         this.message = message;
     }
 
+    //@desc: Setter for message
+    public void setMessage(String message) {
+        this.message = message;
+    }
     /*
     * desc: method to analyse mood or return exception
     * params: none
