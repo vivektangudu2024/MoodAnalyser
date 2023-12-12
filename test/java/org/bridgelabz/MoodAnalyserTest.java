@@ -45,4 +45,14 @@ public class MoodAnalyserTest {
         moodAnalyser.setMessage("I am feeling excited");
         moodAnalyser.analyseMood();
     }
+
+    @Test
+    public void testExceptionType() {
+        moodAnalyser.setMessage(null);
+        try {
+            moodAnalyser.analyseMood();
+        } catch (MoodAnalysisException e) {
+            assertEquals(MoodAnalysisException.ExceptionType.NULL_MOOD, e.getType());
+        }
+    }
 }

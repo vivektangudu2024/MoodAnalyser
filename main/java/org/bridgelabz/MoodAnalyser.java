@@ -22,17 +22,18 @@ public class MoodAnalyser {
     * */
     public String analyseMood() throws MoodAnalysisException {
         if (message == null) {
-            throw new MoodAnalysisException("Message cannot be null");
+            throw new MoodAnalysisException(MoodAnalysisException.ExceptionType.NULL_MOOD, "Message cannot be null");
         }
+
         if (message.isEmpty()) {
-            throw new MoodAnalysisException("Message cannot be empty");
+            throw new MoodAnalysisException(MoodAnalysisException.ExceptionType.EMPTY_MOOD, "Message cannot be empty");
         }
         if (message.contains("happy")) {
             return "Happy";
         } else if (message.contains("sad")) {
             return "Sad";
         } else {
-            throw new MoodAnalysisException("Unable to determine mood");
+            throw new MoodAnalysisException(MoodAnalysisException.ExceptionType.INVALID_MOOD, "Invalid mood provided");
         }
     }
 }
